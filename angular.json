@@ -1,128 +1,40 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1,
-  "newProjectRoot": "projects",
-  "projects": {
-    "flagPipe": {
-      "projectType": "library",
-      "root": "projects/flag-pipe",
-      "sourceRoot": "projects/flag-pipe/src",
-      "prefix": "lib",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/flag-pipe/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/flag-pipe/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/flag-pipe/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "tsConfig": "projects/flag-pipe/tsconfig.spec.json",
-            "polyfills": ["zone.js", "zone.js/testing"]
-          }
-        }
-      }
-    },
-    "flagPipeTestSpace": {
-      "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
-      "root": "projects/flag-pipe-test-space",
-      "sourceRoot": "projects/flag-pipe-test-space/src",
-      "prefix": "app",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "options": {
-            "outputPath": "dist/flag-pipe-test-space",
-            "index": "projects/flag-pipe-test-space/src/index.html",
-            "main": "projects/flag-pipe-test-space/src/main.ts",
-            "polyfills": ["zone.js"],
-            "tsConfig": "projects/flag-pipe-test-space/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/flag-pipe-test-space/src/favicon.ico",
-              "projects/flag-pipe-test-space/src/assets"
-            ],
-            "styles": ["projects/flag-pipe-test-space/src/styles.scss"],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "flagPipeTestSpace:build:production"
-            },
-            "development": {
-              "browserTarget": "flagPipeTestSpace:build:development"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "flagPipeTestSpace:build"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": ["zone.js", "zone.js/testing"],
-            "tsConfig": "projects/flag-pipe-test-space/tsconfig.spec.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/flag-pipe-test-space/src/favicon.ico",
-              "projects/flag-pipe-test-space/src/assets"
-            ],
-            "styles": ["projects/flag-pipe-test-space/src/styles.scss"],
-            "scripts": []
-          }
-        }
-      }
-    }
-  },
-  "cli": {
-    "analytics": false
-  }
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"flagPipe": {
+			"projectType": "library",
+			"root": "projects/flag-pipe",
+			"sourceRoot": "projects/flag-pipe/src",
+			"prefix": "lib",
+			"architect": {
+				"build": {
+					"builder": "@angular-devkit/build-angular:ng-packagr",
+					"options": {
+						"project": "projects/flag-pipe/ng-package.json"
+					},
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/flag-pipe/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/flag-pipe/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular-devkit/build-angular:karma",
+					"options": {
+						"tsConfig": "projects/flag-pipe/tsconfig.spec.json",
+						"polyfills": ["zone.js", "zone.js/testing"]
+					}
+				}
+			}
+		}
+	},
+	"cli": {
+		"analytics": false
+	}
 }

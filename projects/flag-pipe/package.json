@@ -1,12 +1,32 @@
 {
-  "name": "flag-pipe",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/common": "^15.2.0",
-    "@angular/core": "^15.2.0"
-  },
-  "dependencies": {
-    "tslib": "^2.3.0"
-  },
-  "sideEffects": false
+	"name": "flag-pipe",
+	"version": "1.0.0",
+	"author": {
+		"name": "Nikolay Kolev",
+		"email": "mahmoud0ibrahim0@gmail.com"
+	},
+	"description": "A simple pipe to display country flags by country code",
+	"homepage": "https://github.com/Mahmoudibrahim03/ng-angular-flags",
+	"peerDependencies": {
+		"@angular/common": "^15.2.0",
+		"@angular/core": "^15.2.0"
+	},
+	"keywords": [
+		"angular 16",
+		"angular 17",
+		"pipe",
+		"flags",
+		"country",
+		"country code",
+		"country flags",
+		"angular flags",
+		"angular country flags",
+		"javascript",
+		"typescript"
+	],
+	"license": "MIT",
+	"dependencies": {
+		"tslib": "^2.3.0"
+	},
+	"sideEffects": false
 }
