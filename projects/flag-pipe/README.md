@@ -1,25 +1,79 @@
-# flagPipe
+# ng-Flag Pipe
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+[ Component In-progress ]
 
-## Code scaffolding
+## Flag Pipe : is an Angular library
 
-Run `ng generate component component-name --project flagPipe` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project flagPipe`.
+#### that provides a pipe to `[src]` attribute on `<img>` to dynamically import flag image path.
 
-> Note: Don't forget to add `--project flagPipe` or else it will be added to the default project in your `angular.json` file.
+## Getting Started
 
-## Build
+### Dependencies
 
-Run `ng build flagPipe` to build the project. The build artifacts will be stored in the `dist/` directory.
+-   Angular 11.2.0 -> latest version
 
-## Publishing
+### Installing
 
-After building your library with `ng build flagPipe`, go to the dist folder `cd dist/flag-pipe` and run `npm publish`.
+-   `npm install flag-pipe` OR
+    `yarn add flag-pipe` OR
+    `pnpm add flag-pipe`
+-   #### Import `FlagPipeModule` in your `AppModule` or `SharedModule`:
 
-## Running unit tests
+```typescript [AppModule.ts] linenums = "1"
+import { FlagPipeModule } from "flag-pipe";
+```
 
-Run `ng test flagPipe` to execute the unit tests via [Karma](https://karma-runner.github.io).
+-   #### Import `FlagPipeModule` in `ngModule`:
 
-## Further help
+```typescript [AppModule.ts] linenums = "1"
+@NgModule({
+  imports: [
+    FlagPipeModule
+  ]
+})
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Usage :
+
+-   #### Use `flag` pipe in your template:
+-   #### Use CountryCode as `[ ISO 3166-1 alpha-2 ]` format
+    <sub> -> `CountryCode` type already implemented in `flag-pipe` library you can use it as `CountryCode` type.
+    REF : [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) +
+    [Country Codes in Json](https://flagcdn.com/en/codes.json)
+    </sub>
+-   #### Use `flagExtension` as [ "png" | "svg" | "webp" ]
+    <sub> -> `flagExtension` type already implemented in `flag-pipe` library you can use it as `flagExtension` type.</sub>
+-   #### Use `flagTypies` [ 'WAVY' | 'FIXED_HEIGHT' | 'FIXED_WIDTH' ]
+    <sub> -> `flagTypies` type already implemented in `flag-pipe` library you can use it as `flagTypies` type.</sub>
+-   #### Use `flagSize` [ "w160" | "h240" | "256x192" ]
+
+    <sub> -> `FlagSize` type already implemented in `flag-pipe` library you can use it as `FlagSize` type.</sub>
+
+    | flag Type        | FIXED_HEIGHT | FIXED_WIDTH | WAVY      |
+    | ---------------- | ------------ | ----------- | --------- |
+    | flag Size Format | ` h240`      | `w160`      | `256x192` |
+
+---
+
+<br/>
+Full Example :
+
+```html [app.component.html] linenums = "1"
+<img [src]="'qa' | flag : 'svg' : flagType : 'w160'" />
+```
+
+## Future Plans
+
+-   [ In-Progress ] Create a component to use it as `<flag>` tag.
+-   [ ] Add more features to the component.
+-   [ ] CI/CD with Github Actions.
+
+## Acknowledgments
+
+Inspirations.
+
+-   [FlagPedia](https://flagpedia.net/download/api)
+
+## Contributions
+
+This project is an easy and simple project to contribute to. Feel free to open issues and pull requests.

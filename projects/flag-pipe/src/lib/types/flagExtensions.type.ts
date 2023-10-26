@@ -1,1 +1,1 @@
-export type imageExtensions = 'png' | 'svg' | 'webp';
+export type flagExtension = "png" | "svg" | "webp";
