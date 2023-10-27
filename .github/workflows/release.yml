@@ -42,8 +42,10 @@ on:
 
 jobs:
     publish:
-        permissions: write-all
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            packages: write # allow GITHUB_TOKEN to publish packages
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         steps:
@@ -68,8 +70,7 @@ jobs:
             #     draft: false
             #     prerelease: false
 
-            - name: Publish to npm
-              working-directory: ./dist/flag-pipe
-              run: npm publish
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+            - uses: JS-DevTools/npm-publish@v3
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  registry: "https://npm.pkg.github.com"
