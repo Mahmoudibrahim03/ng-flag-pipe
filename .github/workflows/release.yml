@@ -72,5 +72,6 @@ jobs:
 
             - uses: JS-DevTools/npm-publish@v3
               with:
+                  working-directory: dist/flag-pipe
                   token: ${{ secrets.GITHUB_TOKEN }}
                   registry: "https://npm.pkg.github.com"
