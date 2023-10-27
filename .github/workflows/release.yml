@@ -59,10 +59,10 @@ jobs:
               id: create_release
               uses: actions/create-release@v1
               with:
-                  files: dist/flag-pipe/*
-                  token: ${{ secrets.GITHUB_TOKEN }}
-                  release_name: Release ${{ github.event_name }} ${{ github.sha }}
-                  tag_name: v${{ github.run_number }}
+                  tag_name: ${{ github.ref }}
+                  release_name: Release ${{ github.ref }}
+                  draft: false
+                  prerelease: false
 
             - name: Publish to npm
               if: success()
