@@ -43,6 +43,8 @@ on:
 jobs:
     release_and_publish:
         runs-on: ubuntu-latest
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         steps:
             - name: Checkout code
               uses: actions/checkout@v2
@@ -63,7 +65,6 @@ jobs:
                   release_name: Release ${{ github.ref }}
                   draft: false
                   prerelease: false
-                  github_token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Publish to npm
               if: success()
