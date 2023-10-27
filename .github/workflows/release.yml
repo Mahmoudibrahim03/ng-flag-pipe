@@ -30,7 +30,7 @@
 #               env:
 #                   NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
 
-name: Release and Publish
+name: Publish
 
 on:
     push:
@@ -41,7 +41,7 @@ on:
             - main
 
 jobs:
-    release_and_publish:
+    publish:
         permissions: write-all
         runs-on: ubuntu-latest
         env:
@@ -58,17 +58,18 @@ jobs:
             - name: Install dependencies
               run: npm install
 
-            - name: Create GitHub Release
-              id: create_release
-              uses: actions/create-release@v1
-              with:
-                  tag_name: v1.0.0
-                  release_name: Release ${{ github.ref }}
-                  draft: false
-                  prerelease: false
+            # - name: Create GitHub Release
+            # id: create_release
+            # uses: actions/create-release@v1
+            # with:
+            #     folder: my-package
+            #     tag_name: v1.0.0
+            #     release_name: Release ${{ github.ref }}
+            #     draft: false
+            #     prerelease: false
 
             - name: Publish to npm
-              if: success()
+              working-directory: ./dist/flag-pipe
               run: npm publish
               env:
                   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
