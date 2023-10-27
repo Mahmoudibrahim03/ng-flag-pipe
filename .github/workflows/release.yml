@@ -63,6 +63,7 @@ jobs:
                   release_name: Release ${{ github.ref }}
                   draft: false
                   prerelease: false
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Publish to npm
               if: success()
