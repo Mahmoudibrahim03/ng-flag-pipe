@@ -1,3 +1,6 @@
 {
-	"conventionalCommits.scopes": ["pipe"]
+	"conventionalCommits.scopes": ["pipe"],
+	"editor.tokenColorCustomizations": {
+		"textMateRules": []
+	}
 }

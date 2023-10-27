@@ -1,0 +1,71 @@
+# name: "🚀 release"
+
+# on:
+#     push:
+#         branches:
+#             - master
+
+# jobs:
+#     release:
+#         name: 🚀 release
+#         runs-on: ubuntu-latest
+#         env:
+#             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#         steps:
+#             - name: 📚 checkout
+#               uses: actions/checkout@v2.1.1
+#             - name: 🟢 node
+#               uses: actions/setup-node@v1.4.2
+#               with:
+#                   node-version: 12
+#                   registry-url: https://registry.npmjs.org
+#             - name: version release
+#               uses: rymndhng/release-on-push-action@master
+#               with:
+#                   bump_version_scheme: minor
+#                   use_github_release_notes: true
+#             - name: 🚀 publish
+#               run: npm publish --access public
+#               working-directory: my-package
+#               env:
+#                   NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
+
+name: Release and Publish
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+        branches:
+            - main
+
+jobs:
+    release_and_publish:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 14
+
+            - name: Install dependencies
+              run: npm install
+
+            - name: Create GitHub Release
+              id: create_release
+              uses: actions/create-release@v1
+              with:
+                  files: dist/flag-pipe/*
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  release_name: Release ${{ github.event_name }} ${{ github.sha }}
+                  tag_name: v${{ github.run_number }}
+
+            - name: Publish to npm
+              if: success()
+              run: npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
