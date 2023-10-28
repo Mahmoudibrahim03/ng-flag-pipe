@@ -28,7 +28,13 @@ import { FlagPipeModule } from "flag-pipe";
 ```typescript [AppModule.ts] linenums = "1"
 @NgModule({
   imports: [
-    FlagPipeModule
+	flagPipeModule.forRoot({
+		config: {
+			flagExtensions: "png",
+			flagType: "FIXED_HEIGHT",
+			flagSize: "h20",
+		},
+	}),
   ]
 })
 ```

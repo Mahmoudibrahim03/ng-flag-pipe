@@ -33,7 +33,7 @@ i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.2.10", ngImpo
 class FlagPipe {
     constructor() {
         this.flagUrl = "https://flagcdn.com";
-        this._CMCS = inject(CustomModuleConfigService);
+        this._CMCS = inject(CustomModuleConfigService).config;
     }
     /*
      * transform
@@ -43,7 +43,7 @@ class FlagPipe {
      * @param size flagSizes<typeof flagType>
      * @returns string | null
      */
-    transform(value, extention = this._CMCS.config.flagExtensions, flagType = this._CMCS.config.flagType, size = this._CMCS.config.flagSize) {
+    transform(value, extention = this._CMCS.flagExtensions, flagType = this._CMCS.flagType, size = this._CMCS.flagSize) {
         if (!value) {
             return null;
         }
