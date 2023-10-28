@@ -1,5 +1,5 @@
 {
-	"conventionalCommits.scopes": ["pipe", "CI/CD"],
+	"conventionalCommits.scopes": ["pipe", "CI/CD", "configration"],
 	"editor.tokenColorCustomizations": {
 		"textMateRules": []
 	}

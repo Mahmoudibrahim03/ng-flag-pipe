@@ -28,14 +28,20 @@ import { FlagPipeModule } from "flag-pipe";
 ```typescript [AppModule.ts] linenums = "1"
 @NgModule({
   imports: [
-    FlagPipeModule
+		flagPipeModule.forRoot({
+			config: {
+				flagExtensions: "png",
+				flagType: "FIXED_HEIGHT",
+				flagSize: "h20",
+			},
+		}),
   ]
 })
 ```
 
 ### Usage :
 
--   #### Use `flag` pipe in your template:
+-   #### Use `flag` pipe in your template (Required):
 -   #### Use CountryCode as `[ ISO 3166-1 alpha-2 ]` format
     <sub> -> `CountryCode` type already implemented in `flag-pipe` library you can use it as `CountryCode` type.
     REF : [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) +

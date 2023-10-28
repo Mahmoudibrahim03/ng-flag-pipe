@@ -1,11 +1,11 @@
 {
   "name": "flag-pipe",
-  "version": "1.0.0",
+  "version": "1.3.0",
   "author": {
-    "name": "Nikolay Kolev",
+    "name": "Mahmoudibrahim03",
     "email": "mahmoud0ibrahim0@gmail.com"
   },
-  "description": "A simple pipe to display country flags by country code",
+  "description": "Flag Pipe : is an Angular library that provides a pipe to [src] attribute on <img> to dynamically import flag image path.",
   "homepage": "https://github.com/Mahmoudibrahim03/ng-angular-flags",
   "peerDependencies": {
     "@angular/common": "^15.2.0",

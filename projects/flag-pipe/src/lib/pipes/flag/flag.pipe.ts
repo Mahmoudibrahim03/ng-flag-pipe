@@ -1,5 +1,12 @@
-import { Pipe, PipeTransform } from "@angular/core";
-import { countryCode, flagExtension, flagSizes, flagTypies } from "../../types";
+import { Pipe, PipeTransform, inject } from "@angular/core";
+import { CustomModuleConfigService } from "../../services/custom-module-config-service.service";
+import {
+	IModuleConfig,
+	countryCode,
+	flagExtension,
+	flagSizes,
+	flagTypies,
+} from "../../types";
 
 @Pipe({
 	name: "flag",
@@ -7,6 +14,7 @@ import { countryCode, flagExtension, flagSizes, flagTypies } from "../../types";
 })
 export class FlagPipe implements PipeTransform {
 	private readonly flagUrl = "https://flagcdn.com";
+	private _CMCS: IModuleConfig = inject(CustomModuleConfigService).config;
 
 	/*
 	 * transform
@@ -19,9 +27,9 @@ export class FlagPipe implements PipeTransform {
 
 	transform(
 		value: countryCode | undefined,
-		extention: flagExtension = "png",
-		flagType: flagTypies = "FIXED_HEIGHT",
-		size: flagSizes<typeof flagType> = "h20"
+		extention: flagExtension = this._CMCS.flagExtensions,
+		flagType: flagTypies = this._CMCS.flagType,
+		size: flagSizes<typeof flagType> = this._CMCS.flagSize
 	): string | null {
 		if (!value) {
 			return null;
