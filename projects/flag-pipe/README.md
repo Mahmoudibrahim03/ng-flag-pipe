@@ -55,9 +55,10 @@ import { FlagPipeModule } from "flag-pipe";
 
     <sub> -> `FlagSize` type already implemented in `flag-pipe` library you can use it as `FlagSize` type.</sub>
 
-    | flag Type        | FIXED_HEIGHT | FIXED_WIDTH | WAVY      |
-    | ---------------- | ------------ | ----------- | --------- |
-    | flag Size Format | ` h240`      | `w160`      | `256x192` |
+    | flag Type        | FIXED_HEIGHT                                                  | FIXED_WIDTH                                                  | WAVY                                                               |
+    | ---------------- | ------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------ |
+    | flag Size Format | ` h20`                                                        | `w20`                                                        | `36x27`                                                            |
+    | Img              | ![Fixed height](https://flagpedia.net/data/flags/h20/ua.webp) | ![Fixed Width](https://flagpedia.net/data/flags/w20/ua.webp) | ![Wavy image](https://flagpedia.net/data/flags/icon/36x27/ua.webp) |
 
 ---
 
@@ -65,7 +66,7 @@ import { FlagPipeModule } from "flag-pipe";
 Full Example :
 
 ```html [app.component.html] linenums = "1"
-<img [src]="'qa' | flag : 'svg' : flagType : 'w160'" />
+<img [src]="'qa' | flag : 'svg' : WAVY : 'w160'" />
 ```
 
 ## Future Plans
